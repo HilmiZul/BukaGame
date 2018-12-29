@@ -9,13 +9,13 @@ class Drone {
     this.gravity = 0.2;
     this.step = 3;
     this.up = false;
-    this.gameOver = false;
+    this.crashed = false;
   }
 
   show() {
     push();
     let angle = 0;
-    if (this.gameOver) {
+    if (this.crashed) {
       angle = -25;
     } else {
       angle = 0;
@@ -45,7 +45,7 @@ class Drone {
   }
 
   fallingDown() {
-    this.gameOver = true;
+    this.crashed = true;
     if (this.pos.x > height + droneImg.height) {
       this.reset();
     }
@@ -54,7 +54,7 @@ class Drone {
   hitBox(box) {
     if (this.pos.x + droneImg.width / 2 > box.pos.x && this.pos.x - droneImg.width < box.pos.x) {
       if (this.pos.y + droneImg.height > box.pos.y && this.pos.y < box.pos.y) {
-        this.gameOver = true;
+        this.crashed = true;
         return true;
       }
     } else {
