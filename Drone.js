@@ -22,8 +22,19 @@ class Drone {
     }
     translate(this.pos.x, this.pos.y);
     rotate(angle);
-    rectMode(CENTER);
     image(droneImg, 0, 0);
+
+    // propeller
+    fill(102, 121, 143);
+    noStroke();
+    rectMode(CENTER);
+    if (!this.crashed) {
+      rect(0 + 22, 0 + 10, random(10, 50), 9, 10);
+      rect(0 + 78, 0 + 10, random(10, 50), 9, 10);
+    } else {
+      rect(0 + 22, 0 + 10, 50, 9, 10);
+      rect(0 + 78, 0 + 10, 50, 9, 10);
+    }
     pop();
   }
 
