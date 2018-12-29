@@ -81,7 +81,9 @@ function draw() {
 
 function keyPressed() {
 	if (key == ' ') {
-		drone.up = true;
+		if (!drone.crashed) {
+			drone.up = true;
+		}
 	}
 }
 
