@@ -5,13 +5,16 @@ let bg = [];
 let totalBg = 2;
 let droneImg;
 let drone;
+let birds = [];
 
 let stack, totalBox;
 
 function preload() {
 	bgImg = loadImage("assets/img/bg-transparent.png");
 	boxImg = loadImage("assets/img/box3d.png");
-	droneImg = loadImage("assets/img/drone.png");
+	droneImg = loadImage("assets/img/kurir.png");
+	birdImg_1 = loadImage("assets/img/bird-a.png");
+	birdImg_2 = loadImage("assets/img/bird-b.png");
 }
 
 function setup() {
@@ -34,6 +37,11 @@ function setup() {
 
 	// DRONE
 	drone = new Drone();
+	layerDrone = 'a';
+
+	for (let i = 0; i < 1; i++) {
+		birds.push(new Bird());
+	}
 }
 
 function draw() {
@@ -56,7 +64,6 @@ function draw() {
 		boxes[j].show();
 		boxes[j].update();
 		if (drone.hitBox(boxes[j])) {
-			console.log("hit");
 			drone.fallingDown();
 		}
 	}
@@ -76,6 +83,16 @@ function draw() {
 	drone.fly();
 	if (drone.dropped()) {
 		drone.reset();
+	}
+
+	// BIRDS
+	for (let i = 0; i < birds.length; i++) {
+		birds[i].show();
+		birds[i].update();
+		if (birds[i].checkEdge()) {
+			birds.splice(i, 1);
+			birds.push(new Bird());
+		}
 	}
 }
 
