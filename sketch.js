@@ -6,8 +6,9 @@ let totalBg = 2;
 let droneImg;
 let drone;
 let birds = [];
-
 let stack, totalBox;
+let travel;
+let font;
 
 function preload() {
 	bgImg = loadImage("assets/img/bg-transparent.png");
@@ -15,6 +16,8 @@ function preload() {
 	droneImg = loadImage("assets/img/kurir.png");
 	birdImg_1 = loadImage("assets/img/bird-a.png");
 	birdImg_2 = loadImage("assets/img/bird-b.png");
+	travelImg = loadImage("assets/img/travel.png");
+	font = loadFont("assets/font/FredokaOne.ttf");
 }
 
 function setup() {
@@ -42,6 +45,8 @@ function setup() {
 	for (let i = 0; i < 1; i++) {
 		birds.push(new Bird());
 	}
+
+	travel = 0;
 }
 
 function draw() {
@@ -83,6 +88,7 @@ function draw() {
 	drone.fly();
 	if (drone.dropped()) {
 		drone.reset();
+		travel = 0;
 	}
 
 	// BIRDS
@@ -94,6 +100,18 @@ function draw() {
 			birds.push(new Bird());
 		}
 	}
+
+	// TRAVEL IN METER (m)
+	if (frameCount % 30 == 0) {
+		travel++;
+	}
+	image(travelImg, 10, 10);
+	fill(237, 120, 153);
+	stroke(255);
+	strokeWeight(7);
+	textSize(40);
+	textFont(font);
+	text(travel, 60, 50);
 }
 
 function keyPressed() {
