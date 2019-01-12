@@ -99,6 +99,10 @@ function draw() {
 			birds.splice(i, 1);
 			birds.push(new Bird());
 		}
+
+		if (drone.hitBird(birds[i])) {
+			drone.fallingDown();
+		}
 	}
 
 	// TRAVEL IN METER (m)
