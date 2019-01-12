@@ -72,4 +72,15 @@ class Drone {
       return false;
     }
   }
+
+  hitBird(bird) {
+    if (this.pos.x + droneImg.width / 2 > bird.pos.x && this.pos.x - droneImg.width < bird.pos.x) {
+      if (this.pos.y + droneImg.height > bird.pos.y && this.pos.y < bird.pos.y) {
+        this.crashed = true;
+        return true;
+      }
+    } else {
+      return false;
+    }
+  }
 }
