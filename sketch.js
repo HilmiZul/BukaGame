@@ -31,14 +31,14 @@ function setup() {
 		posX += bgImg.width;
 	}
 
-	// DRONE
+	// DRONE: new Object
 	drone = new Drone();
-	layerDrone = 'a';
 
 	for (let i = 0; i < 1; i++) {
 		birds.push(new Bird());
 	}
 
+	// initialize travel distance
 	travel = 0;
 }
 
