@@ -13,7 +13,7 @@ let font;
 function preload() {
 	bgImg = loadImage("assets/img/bg-transparent.png");
 	boxImg = loadImage("assets/img/box3d.png");
-	boxImg2 = loadImage("assets/img/box3d2.png");
+	// boxImg2 = loadImage("assets/img/box3d2.png");
 	droneImg = loadImage("assets/img/kurir.png");
 	birdImg_1 = loadImage("assets/img/bird-a.png");
 	birdImg_2 = loadImage("assets/img/bird-b.png");
