@@ -43,7 +43,7 @@ function setup() {
 }
 
 function draw() {
-	background(234, 242, 255);
+	background(255, 242, 240);
 
 	// BACKGROUND PARALLAX :D
 	for (let i = 0; i < bg.length; i++) {
