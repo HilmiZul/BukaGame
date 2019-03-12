@@ -20,6 +20,8 @@ class Drone {
     } else {
       angle = 0;
     }
+
+    // body
     translate(this.pos.x, this.pos.y);
     rotate(angle);
     image(droneImg, 0, 0);
