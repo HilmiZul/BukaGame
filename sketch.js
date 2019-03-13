@@ -43,7 +43,7 @@ function setup() {
 }
 
 function draw() {
-	background(255, 242, 240);
+	background(255, 242, 242);
 
 	// BACKGROUND PARALLAX :D
 	for (let i = 0; i < bg.length; i++) {
@@ -116,6 +116,11 @@ function keyPressed() {
 		if (!drone.crashed) {
 			drone.up = true;
 		}
+	}
+	if (keyCode == ESCAPE) {
+		noLoop();
+	} else if (keyCode == RETURN) {
+		loop();
 	}
 }
 
