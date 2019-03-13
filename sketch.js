@@ -117,6 +117,9 @@ function keyPressed() {
 			drone.up = true;
 		}
 	}
+
+	// PAUSE AND PLAY
+	// (TEMPORARY)
 	if (keyCode == ESCAPE) {
 		noLoop();
 	} else if (keyCode == RETURN) {
