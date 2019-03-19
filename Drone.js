@@ -4,7 +4,7 @@ class Drone {
   }
 
   reset() {
-    this.pos = createVector(width / 4, height / 4);
+    this.pos = createVector(width / 5, height / 4);
     this.vel = 0;
     this.gravity = 0.2;
     this.step = 3;
@@ -31,11 +31,11 @@ class Drone {
     noStroke();
     rectMode(CENTER);
     if (!this.crashed) {
-      rect(0 + 22, 0 + 10, random(10, 50), 9, 10);
-      rect(0 + 78, 0 + 10, random(10, 50), 9, 10);
+      rect(0 + 22, 0 + 5, random(10, 50), 9, 10);
+      rect(0 + 78, 0 + 5, random(10, 50), 9, 10);
     } else {
-      rect(0 + 22, 0 + 10, 50, 9, 10);
-      rect(0 + 78, 0 + 10, 50, 9, 10);
+      rect(0 + 22, 0 + 5, 50, 9, 10);
+      rect(0 + 78, 0 + 5, 50, 9, 10);
     }
     pop();
   }
@@ -83,6 +83,13 @@ class Drone {
       }
     } else {
       return false;
+    }
+  }
+
+  topEdge() {
+    if (this.pos.y < 0) {
+      this.crashed = true;
+      return true;
     }
   }
 }
