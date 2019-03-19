@@ -1,7 +1,7 @@
 class Background {
   constructor(posX) {
     this.pos = createVector(0 + posX, height - bgImg.height);
-    this.step = 0.3;
+    this.step = 0.1;
   }
 
   show() {
