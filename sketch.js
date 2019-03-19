@@ -1,4 +1,5 @@
-let boxes = [];
+let boxesBottom = [];
+let boxesTop = [];
 let boxImg;
 let bgImg;
 let bg = [];
@@ -23,6 +24,10 @@ function preload() {
 	bsound = loadSound("assets/sound/bsound.wav");
 }
 
+function randTotalBox() {
+	return random(0, 5);
+}
+
 function setup() {
 	createCanvas(windowWidth, windowHeight);
 
@@ -36,9 +41,27 @@ function setup() {
 		posX += bgImg.width;
 	}
 
+	// BOX
+	// box bawah
+	stack = 0;
+	totalBox = randTotalBox();
+	for (let j = 0; j < totalBox; j++) {
+		boxesBottom.push(new Boxes(width, height - boxImg.height - stack + 100));
+		stack += boxImg.height;
+	}
+	// box atas
+	stackTop = 0;
+	totalBoxTop = (10 - totalBox) - 3;
+	for (let k = 0; k < totalBoxTop; k++) {
+		boxesTop.push(new Boxes(width, 0 + (boxImg.height + stackTop) - 100));
+		stackTop += boxImg.height;
+	}
+
+
 	// DRONE: new Object
 	drone = new Drone();
 
+	// BIRD
 	for (let i = 0; i < 1; i++) {
 		birds.push(new Bird());
 	}
@@ -63,22 +86,44 @@ function draw() {
 	}
 
 	// BOXES
-	for (let j = 0; j < boxes.length; j++) {
-		boxes[j].show();
-		boxes[j].update();
-		if (drone.hitBox(boxes[j])) {
+	// tampilkan box bawah
+	for (let j = 0; j < boxesBottom.length; j++) {
+		boxesBottom[j].show();
+		boxesBottom[j].update();
+		if (drone.hitBox(boxesBottom[j])) {
+			drone.fallingDown();
+		}
+		if (boxesBottom[j].checkEdge()) {
+			// kosongkan dan buat baru
+			boxesBottom = [];
+			boxesTop = [];
+
+			// box bawah
+			stack = 0;
+			totalBox = randTotalBox();
+			for (let j = 0; j < totalBox; j++) {
+				boxesBottom.push(new Boxes(width, height - boxImg.height - stack + 100));
+				stack += boxImg.height;
+			}
+
+			// box atas
+			stackTop = 0;
+			totalBoxTop = (10 - totalBox) - 3;
+			for (let k = 0; k < totalBoxTop; k++) {
+				boxesTop.push(new Boxes(width, 0 + (boxImg.height + stackTop) - 100));
+				stackTop += boxImg.height;
+			}
+		}
+	}
+	// tampilkan box atas
+	for (let k = 0; k < boxesTop.length; k++) {
+		boxesTop[k].show();
+		boxesTop[k].update();
+		if (drone.hitBox(boxesTop[k])) {
 			drone.fallingDown();
 		}
 	}
-	if (frameCount % 160 == 1) {
-		// reset stack & totalBox :D
-		stack = 0;
-		totalBox = random(0, 5);
-		for (let j = 0; j < totalBox; j++) {
-			boxes.push(new Boxes(width, height - boxImg.height - stack + 100));
-			stack += boxImg.height;
-		}
-	}
+
 
 	// BIRDS
 	for (let i = 0; i < birds.length; i++) {
