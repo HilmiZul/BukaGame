@@ -31,11 +31,11 @@ class Drone {
     noStroke();
     rectMode(CENTER);
     if (!this.crashed) {
-      rect(0 + 22, 0 + 5, random(10, 50), 9, 10);
-      rect(0 + 78, 0 + 5, random(10, 50), 9, 10);
+      rect(0 + 22, 0 + 5, random(10, 40), 7, 10);
+      rect(0 + 78, 0 + 5, random(10, 40), 7, 10);
     } else {
-      rect(0 + 22, 0 + 5, 50, 9, 10);
-      rect(0 + 78, 0 + 5, 50, 9, 10);
+      rect(0 + 22, 0 + 5, 50, 7, 10);
+      rect(0 + 78, 0 + 5, 50, 7, 10);
     }
     pop();
   }
@@ -66,7 +66,7 @@ class Drone {
 
   hitBox(box) {
     if (this.pos.x + droneImg.width / 2 > box.pos.x && this.pos.x - droneImg.width < box.pos.x) {
-      if (this.pos.y + droneImg.height > box.pos.y && this.pos.y < box.pos.y) {
+      if (this.pos.y + droneImg.height > box.pos.y && this.pos.y < box.pos.y + boxImg.height) {
         this.crashed = true;
         return true;
       }
