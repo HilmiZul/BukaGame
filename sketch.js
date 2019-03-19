@@ -98,7 +98,7 @@ function draw() {
 			boxesBottom = [];
 			boxesTop = [];
 
-			// box bawah
+			// create new box bawah
 			stack = 0;
 			totalBox = randTotalBox();
 			for (let j = 0; j < totalBox; j++) {
@@ -106,7 +106,7 @@ function draw() {
 				stack += boxImg.height;
 			}
 
-			// box atas
+			// ALSO, create new box atas :D
 			stackTop = 0;
 			totalBoxTop = (10 - totalBox) - 3;
 			for (let k = 0; k < totalBoxTop; k++) {
@@ -133,7 +133,7 @@ function draw() {
 			birds.splice(i, 1);
 			birds.push(new Bird());
 		}
-
+		
 		if (drone.hitBird(birds[i])) {
 			drone.fallingDown();
 		}
