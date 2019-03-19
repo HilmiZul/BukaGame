@@ -9,20 +9,25 @@ let birds = [];
 let stack, totalBox;
 let travel;
 let font;
+let bsound;
 
 function preload() {
 	bgImg = loadImage("assets/img/bg-transparent.png");
-	boxImg = loadImage("assets/img/box3d.png");
+	boxImg = loadImage("assets/img/box-2.png");
 	// boxImg2 = loadImage("assets/img/box3d2.png");
-	droneImg = loadImage("assets/img/kurir.png");
+	droneImg = loadImage("assets/img/drone.png");
 	birdImg_1 = loadImage("assets/img/bird-a.png");
 	birdImg_2 = loadImage("assets/img/bird-b.png");
 	travelImg = loadImage("assets/img/travel.png");
 	font = loadFont("assets/font/FredokaOne.ttf");
+	bsound = loadSound("assets/sound/bsound.wav");
 }
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
+
+	// latar musik :D
+	bsound.loop();
 
 	// BACKGROUND
 	let posX = 0;
@@ -70,7 +75,7 @@ function draw() {
 		stack = 0;
 		totalBox = random(0, 5);
 		for (let j = 0; j < totalBox; j++) {
-			boxes.push(new Boxes(stack));
+			boxes.push(new Boxes(width, height - boxImg.height - stack + 100));
 			stack += boxImg.height;
 		}
 	}
@@ -96,6 +101,9 @@ function draw() {
 	if (drone.dropped()) {
 		drone.reset();
 		travel = 0;
+	}
+	if (drone.topEdge()) {
+		drone.fallingDown();
 	}
 
 	// TRAVEL IN METER (m)
