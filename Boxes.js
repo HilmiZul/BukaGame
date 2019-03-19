@@ -1,6 +1,6 @@
 class Boxes {
-  constructor(stack) {
-    this.pos = createVector(width, height - boxImg.height - stack);
+  constructor(x, y) {
+    this.pos = createVector(x, y);
     this.step = 2;
     this.total = random(0, 5);
   }
