@@ -16,4 +16,10 @@ class Boxes {
   update() {
     this.pos.x -= this.step;
   }
+
+  checkEdge() {
+    if (this.pos.x < 0 - boxImg.width) {
+      return true;
+    }
+  }
 }
