@@ -1,5 +1,9 @@
 class Bird {
   constructor() {
+    this.reset();
+  }
+
+  reset() {
     this.pos = createVector(random(width + 500, width + 900), random(0, height / 2));
     this.vel = random(4, 8);
   }
