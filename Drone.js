@@ -59,8 +59,9 @@ class Drone {
 
   fallingDown() {
     this.crashed = true;
-    if (this.pos.x > height + droneImg.height) {
-      this.reset();
+    if (this.pos.y > height + droneImg.height) {
+      // this.reset();
+      return true;
     }
   }
 
