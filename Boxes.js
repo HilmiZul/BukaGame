@@ -1,5 +1,9 @@
 class Boxes {
   constructor(x, y) {
+    this.reset(x, y);
+  }
+
+  reset(x, y) {
     this.pos = createVector(x, y);
     this.step = 2;
     this.total = random(0, 5);
