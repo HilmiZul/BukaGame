@@ -59,10 +59,8 @@ class Drone {
 
   fallingDown() {
     this.crashed = true;
-    if (this.pos.y > height + droneImg.height) {
-      // this.reset();
-      return true;
-    }
+    this.vel += 3;
+    return this.dropped();
   }
 
   hitBox(box) {
@@ -78,7 +76,7 @@ class Drone {
 
   hitBird(bird) {
     if (this.pos.x + droneImg.width / 2 > bird.pos.x && this.pos.x - droneImg.width < bird.pos.x) {
-      if (this.pos.y + droneImg.height / 2 > bird.pos.y && this.pos.y < bird.pos.y) {
+      if (this.pos.y + droneImg.height / 2 > bird.pos.y && this.pos.y < bird.pos.y + birdImg_1.height) {
         this.crashed = true;
         return true;
       }
@@ -90,6 +88,7 @@ class Drone {
   topEdge() {
     if (this.pos.y < 0) {
       this.crashed = true;
+      bsound.stop();
       return true;
     }
   }
