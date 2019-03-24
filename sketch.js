@@ -226,8 +226,10 @@ function keyPressed() {
 	// (TEMPORARY)
 	if (keyCode == ESCAPE) {
 		if (!pause) {
-			pause = true;
-			noLoop();
+			if (play) {
+				pause = true;
+				noLoop();
+			}
 		}
 	} else if (keyCode == RETURN) {
 		if (!play) {
