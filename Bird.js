@@ -4,7 +4,7 @@ class Bird {
   }
 
   reset() {
-    this.pos = createVector(random(width + 500, width + 900), random(0, height / 2));
+    this.pos = createVector(random(width + 500, width + 900), random(0, height / 3));
     this.vel = random(4, 8);
   }
 
