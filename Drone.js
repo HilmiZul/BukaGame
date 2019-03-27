@@ -89,7 +89,7 @@ class Drone {
     if (this.pos.y < 0) {
       this.crashed = true;
       bsound.stop();
-      return true;
+      return this.crashed;
     }
   }
 }
