@@ -185,6 +185,9 @@ function draw() {
 			textSize(100);
 			textAlign(CENTER);
 			text("BENTAR...", width / 2, height / 2);
+			textSize(40);
+			strokeWeight(10);
+			text("Press ENTER", width / 2, height / 2 + 100);
 			pop();
 			bsound.pause();
 		}
