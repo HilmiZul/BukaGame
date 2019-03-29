@@ -15,6 +15,7 @@ let gameoverSound;
 let gameendSound;
 let pause = false;
 let play = true;
+let distant = 190;
 
 function preload() {
 	bgImg = loadImage("assets/img/bg-transparent.png");
@@ -34,19 +35,23 @@ function randTotalBox() {
 	return random(1, 6);
 }
 
-function speedUp(droneArr) {
-	if (travel > 100 && travel < 100) {
-		droneArr.step = 2.5;
+function speedUp(box) {
+	if (travel > 100 && travel < 200) {
+		box.step = 2.005;
 	} else if (travel > 200 && travel < 300) {
-		droneArr.step = 3;
+		box.step = 2.006;
 	} else if (travel > 300 && travel < 400) {
-		droneArr.step = 3.5;
+		box.step = 2.007;
 	} else if (travel > 400 && travel < 500) {
-		droneArr.step = 4;
+		box.step = 2.008;
 	} else if (travel > 500 && travel < 600) {
-		droneArr.step = 4.5;
+		box.step = 2.009;
 	} else if (travel > 600 && travel < 999) {
-		droneArr.step = 5;
+		box.step = 2.010;
+	} else if (travel > 999 && travel < 1500) {
+		box.step = 2.011;
+	} else if (travel > 1500) {
+		box.step = 2.012;
 	}
 }
 
@@ -116,7 +121,7 @@ function draw() {
 		}
 
 		// CHECK FOR CREATE NEW BOX
-		if (frameCount % 190 == 1) {
+		if (frameCount % distant == 1) {
 			stack = 0;
 			totalBox = randTotalBox();
 			for (let j = 0; j < totalBox; j++) {
