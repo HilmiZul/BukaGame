@@ -219,10 +219,10 @@ function draw() {
 		text("GAME OVER", width / 2, height / 2 - 150);
 		text("--------------------", width / 2, height / 2 - 90);
 		strokeWeight(10);
-		text("Travel: " + travel + " m", width / 2, height / 2);
+		text("Jarak Terakhir: " + travel + " m", width / 2, height / 2);
 		textSize(40);
 		strokeWeight(10);
-		text("Press ENTER", width / 2, height / 2 + 100);
+		text("Tekan ENTER", width / 2, height / 2 + 100);
 		pop();
 		noLoop();
 		bsound.stop();
