@@ -218,7 +218,8 @@ function draw() {
 		textSize(70);
 		text("GAME OVER", width / 2, height / 2 - 150);
 		text("--------------------", width / 2, height / 2 - 90);
-		strokeWeight(10);
+		strokeWeight(9);
+		textSize(50)
 		text("Jarak Terakhir: " + travel + " m", width / 2, height / 2);
 		textSize(40);
 		strokeWeight(10);
