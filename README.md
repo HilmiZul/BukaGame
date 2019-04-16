@@ -1,5 +1,4 @@
 # Bukalapak Kurir
-[Play](https://hilmizul.github.io/BukaGame/)
 
 # LICENSE
 **[MIT](https://github.com/HilmiZul/BukaGame/blob/master/LICENSE)**
