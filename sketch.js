@@ -2,6 +2,7 @@
  * Bukalapak Kurir (remake)
  * 
  * Desember 28, 2018
+ * update May 2019
  * project: https://github.com/hilmizul/bukagame
  * remake by Zul Hilmi https://github.com/hilmizul
  * Thanks to DLSound and Jason Farnham for Audio Library
