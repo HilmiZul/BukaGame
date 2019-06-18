@@ -25,7 +25,7 @@ let gameoverSound;
 let gameendSound;
 let pause = false;
 let play = true;
-let distant = 190;
+let distance = 190;
 
 function preload() {
 	bgImg = loadImage("assets/img/bg-transparent.png");
@@ -131,7 +131,7 @@ function draw() {
 		}
 
 		// CHECK FOR CREATE NEW BOX
-		if (frameCount % distant == 1) {
+		if (frameCount % distance == 1) {
 			stack = 0;
 			totalBox = randTotalBox();
 			for (let j = 0; j < totalBox; j++) {
