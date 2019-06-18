@@ -3,8 +3,8 @@
 ## Shortcuts
 | Command | Description |
 |---|---|
-| `SPACE` | Jump/Fly |
-| `ESC` | Pause |
+| `SPACE` | Jump/Fly the drone |
+| `ESC` | Pause the game |
 
 ## Thanks to...
 * Bukalapak 😆
