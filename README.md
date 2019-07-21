@@ -5,6 +5,7 @@
 |---|---|
 | `SPACE` | Jump/Fly the drone |
 | `ESC` | Pause the game |
+| `ENTER`/`RETURN` | Continue/Play |
 
 ## Thanks to...
 * Bukalapak 😆
