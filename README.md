@@ -1,7 +1,7 @@
 # Bukalapak Kurir
 
 ## Shortcuts
-| Command | Description |
+| Key | Description |
 |---|---|
 | `SPACE` | Jump/Fly the drone |
 | `ESC` | Pause the game |
