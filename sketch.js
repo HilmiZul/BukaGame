@@ -28,7 +28,7 @@ let play = true;
 let distance = 190;
 
 function preload() {
-	bgImg = loadImage("assets/img/bg-transparent.png");
+	bgImg = loadImage("assets/img/bg-transparent-ORI.png");
 	boxImg = loadImage("assets/img/box-2.png");
 	// boxImg2 = loadImage("assets/img/box3d2.png");
 	droneImg = loadImage("assets/img/drone.png");
