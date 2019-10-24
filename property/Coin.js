@@ -9,9 +9,10 @@ class Coin {
   }
 
   show() {
-    fill(253, 253, 150);
-    strokeWeight(3);
-    ellipse(this.pos.x + this.r, this.pos.y, this.r, this.r + 10);
+    // fill(253, 253, 150);
+    // strokeWeight(3);
+    // ellipse(this.pos.x + this.r, this.pos.y, this.r, this.r + 10);
+    image(coinImg, this.pos.x + coinImg.width, this.pos.y);
   }
 
   update(step) {

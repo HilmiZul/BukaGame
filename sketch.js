@@ -14,6 +14,7 @@ let box;
 let coins = [];
 let boxImg;
 let bgImg;
+let coinImg;
 let bg = [];
 let totalBg = 2;
 let droneImg;
@@ -39,6 +40,7 @@ function preload() {
 	birdImg_1 = loadImage("assets/img/bird-a.png");
 	birdImg_2 = loadImage("assets/img/bird-b.png");
 	travelImg = loadImage("assets/img/travel.png");
+	coinImg = loadImage("assets/img/coin.png");
 	font = loadFont("assets/font/FredokaOne.ttf");
 	bsound = loadSound("assets/sound/bsound.wav");
 	gameoverSound = loadSound("assets/sound/gameover.mp3");
@@ -206,9 +208,10 @@ function draw() {
 			travel++;
 		}
 		image(travelImg, 10, 10);
-		fill(253, 253, 150);
-		strokeWeight(5);
-		ellipse(30, 100, 30, 40);
+		image(coinImg, 10, 80);
+		// fill(253, 253, 150);
+		// strokeWeight(5);
+		// ellipse(30, 100, 30, 40);
 		fill(237, 120, 153);
 		stroke(255);
 		strokeWeight(7);
