@@ -10,6 +10,8 @@
 
 let boxesBottom = [];
 let boxesTop = [];
+let box;
+let coins = [];
 let boxImg;
 let bgImg;
 let bg = [];
@@ -26,6 +28,8 @@ let gameendSound;
 let pause = false;
 let play = true;
 let distance = 190;
+let coinSound;
+let coinCount = 0;
 
 function preload() {
 	bgImg = loadImage("assets/img/bg-transparent-ORI.png");
@@ -39,6 +43,7 @@ function preload() {
 	bsound = loadSound("assets/sound/bsound.wav");
 	gameoverSound = loadSound("assets/sound/gameover.mp3");
 	gameendSound = loadSound("assets/sound/gameend.mp3");
+	coinSound = loadSound("assets/sound/ding.mp3");
 }
 
 function randTotalBox() {
@@ -68,6 +73,7 @@ function speedUp(box) {
 function setup() {
 	createCanvas(windowWidth, windowHeight);
 
+	box = new Boxes();
 	// latar musik :D
 	bsound.loop();
 
@@ -138,6 +144,12 @@ function draw() {
 				boxesBottom.push(new Boxes(width, height - boxImg.height - stack + 100));
 				stack += boxImg.height;
 			}
+			// RANDOM KEMUNCULAN KOIN 1:7
+			let coinRand = random(1, 7);
+			if (Math.floor(coinRand) == 1) {
+				coins.push(new Coin(width, height - boxImg.height - stack + 130));
+
+			}
 
 			// ALSO, create new box atas :D
 			stackTop = 0;
@@ -145,6 +157,17 @@ function draw() {
 			for (let k = 0; k < totalBoxTop; k++) {
 				boxesTop.push(new Boxes(width, 0 + (boxImg.height + stackTop) - 100));
 				stackTop += boxImg.height;
+			}
+		}
+
+		// COIN
+		for (let c = 0; c < coins.length; c++) {
+			coins[c].show();
+			coins[c].update(box.step);
+			if (drone.hitCoin(coins[c])) {
+				coins.splice(c, 1);
+				coinSound.play();
+				coinCount++;
 			}
 		}
 
@@ -183,12 +206,16 @@ function draw() {
 			travel++;
 		}
 		image(travelImg, 10, 10);
+		fill(253, 253, 150);
+		strokeWeight(5);
+		ellipse(30, 100, 30, 40);
 		fill(237, 120, 153);
 		stroke(255);
 		strokeWeight(7);
 		textSize(40);
 		textFont(font);
 		text(travel, 60, 50);
+		text(coinCount, 60, 115);
 
 		if (pause) {
 			// GAME PAUSED
@@ -222,9 +249,10 @@ function draw() {
 		strokeWeight(9);
 		textSize(50)
 		text("Jarak Terakhir: " + travel + " m", width / 2, height / 2);
+		text("Koin: " + coinCount, width / 2, height / 2 + 70);
 		textSize(40);
 		strokeWeight(10);
-		text("Tekan ENTER", width / 2, height / 2 + 100);
+		text("Tekan ENTER", width / 2, height / 2 + 150);
 		pop();
 		noLoop();
 		bsound.stop();
@@ -255,8 +283,10 @@ function keyPressed() {
 			play = true;
 			drone.reset();
 			travel = 0;
+			coinCount = 0;
 			boxesBottom = []; // kosongkan array
 			boxesTop = []; // kosongkan array
+			coins = [];
 			bird.reset();
 			bsound.loop();
 			gameendSound.stop();
