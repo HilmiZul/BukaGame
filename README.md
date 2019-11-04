@@ -1,4 +1,5 @@
 # Bukalapak Kurir
+Game Bukalakap Kurir yang ada di Aplikasi BukaLapak. Saat itu dipopulerkan oleh CEO-nya di Instastory pada 28 Desember 2018 dan Saya tertarik untuk nge-remake-nya versi Web :D
 
 ## Shortcuts
 | Key | Description |
