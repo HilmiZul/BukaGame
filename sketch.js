@@ -33,10 +33,10 @@ let coinSound;
 let coinCount = 0;
 
 function preload() {
-	bgImg = loadImage("assets/img/bg-transparent-pplg.png");
+	bgImg = loadImage("assets/img/bg-transparent.png");
 	boxImg = loadImage("assets/img/box-2.png");
 	// boxImg2 = loadImage("assets/img/box3d2.png");
-	droneImg = loadImage("assets/img/drone-pplg.png");
+	droneImg = loadImage("assets/img/drone.png");
 	birdImg_1 = loadImage("assets/img/bird-a.png");
 	birdImg_2 = loadImage("assets/img/bird-b.png");
 	travelImg = loadImage("assets/img/travel.png");
