@@ -1,6 +1,6 @@
 /*
  * Bukalapak Kurir (remake)
- * 
+ *
  * Desember 28, 2018
  * update May 2019
  * project: https://github.com/hilmizul/bukagame
@@ -305,4 +305,14 @@ function keyPressed() {
 
 function keyReleased() {
 	drone.up = false;
+}
+
+function mousePressed() {
+  if (!drone.crashed) {
+    drone.up = true;
+  }
+}
+
+function mouseReleased() {
+  drone.up = false;
 }
