@@ -1,10 +1,10 @@
 # Bukalapak Kurir
 Game BukaLapak Kurir yang ada di Aplikasi BukaLapak. Saat itu dipopulerkan oleh CEO-nya di Instastory pada 28 Desember 2018 dan Saya tertarik untuk nge-remake-nya versi Web :D
 
-## Game Controls 
+## Game Controls
 | Key | Description |
 |---|---|
-| `SPACE` | Jump/Fly the drone |
+| `SPACE` / `TAP` | Jump/Fly the drone |
 | `ESC` | Pause the game |
 | `ENTER`/`RETURN` | Continue/Play |
 
