@@ -22,6 +22,7 @@ let drone;
 let bird;
 let stack, totalBox;
 let travel;
+let travelImg;
 let font;
 let bsound;
 let gameoverSound;
